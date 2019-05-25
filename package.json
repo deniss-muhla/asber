@@ -1,0 +1,9 @@
+{
+  "name": "asber",
+  "version": "0.1.0",
+  "description": "Anti-Social Behaviour Therapy",
+  "main": "index.js",
+  "repository": "git@github.com:deniss-muhla/asber.git",
+  "author": "Deniss Muhļa <deniss.muhla@gmail.com>",
+  "license": "SEE LICENSE IN LICENSE"
+}
