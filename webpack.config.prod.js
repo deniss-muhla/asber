@@ -17,24 +17,24 @@ module.exports = {
     },
     plugins: [
         new ManifestPlugin(),
-        new WebappWebpackPlugin({
-            logo: path.resolve('src/assets/logo.svg'),
-            cache: true,
-            prefix: '',
-            inject: true,
-            favicons: {
-                appName: ':: asber',
-                appDescription: 'Anti-Social Behaviour Therapy',
-                developerName: 'Deniss Muhļa <deniss.muhla@gmail.com>',
-                developerURL: null,
-                background: '#ddd',
-                theme_color: '#333',
-                icons: {
-                    coast: false,
-                    yandex: false
-                }
-            }
-        }),
+        // new WebappWebpackPlugin({
+        //     logo: path.resolve('src/assets/logo.svg'),
+        //     cache: true,
+        //     prefix: '',
+        //     inject: true,
+        //     favicons: {
+        //         appName: ':: asber',
+        //         appDescription: 'Anti-Social Behaviour Therapy',
+        //         developerName: 'Deniss Muhļa <deniss.muhla@gmail.com>',
+        //         developerURL: null,
+        //         background: '#ddd',
+        //         theme_color: '#333',
+        //         icons: {
+        //             coast: false,
+        //             yandex: false
+        //         }
+        //     }
+        // }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: ':: asber',
