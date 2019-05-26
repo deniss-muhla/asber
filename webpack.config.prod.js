@@ -9,32 +9,29 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
     mode: 'production',
+    stats: 'errors-only',
     target: 'web',
     entry: './src/index.ts',
-    devServer: {
-        contentBase: './dist',
-        hot: true
-    },
     plugins: [
         new ManifestPlugin(),
-        // new WebappWebpackPlugin({
-        //     logo: path.resolve('src/assets/logo.svg'),
-        //     cache: true,
-        //     prefix: '',
-        //     inject: true,
-        //     favicons: {
-        //         appName: ':: asber',
-        //         appDescription: 'Anti-Social Behaviour Therapy',
-        //         developerName: 'Deniss Muhļa <deniss.muhla@gmail.com>',
-        //         developerURL: null,
-        //         background: '#ddd',
-        //         theme_color: '#333',
-        //         icons: {
-        //             coast: false,
-        //             yandex: false
-        //         }
-        //     }
-        // }),
+        new WebappWebpackPlugin({
+            logo: path.resolve('src/assets/logo.svg'),
+            cache: true,
+            prefix: '',
+            inject: true,
+            favicons: {
+                appName: ':: asber',
+                appDescription: 'Anti-Social Behaviour Therapy',
+                developerName: 'Deniss Muhļa <deniss.muhla@gmail.com>',
+                developerURL: null,
+                background: '#ddd',
+                theme_color: '#333',
+                icons: {
+                    coast: false,
+                    yandex: false
+                }
+            }
+        }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: ':: asber',
