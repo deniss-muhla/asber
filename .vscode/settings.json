@@ -1,0 +1,6 @@
+{
+  "prettier.singleQuote": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "npm.packageManager": "yarn"
+}
