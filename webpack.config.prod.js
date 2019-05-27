@@ -1,11 +1,16 @@
+const fs = require('fs');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const SriPlugin = require('webpack-subresource-integrity');
 const CspHtmlWebpackPlugin = require('csp-html-webpack-plugin');
-const WebappWebpackPlugin = require('webapp-webpack-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
+const manifestAssets = fs
+    .readFileSync('./src/assets/manifest/__generated__/index.html', 'utf8')
+    .toString()
+    .replace(/\r?\n/, '');
 
 module.exports = {
     mode: 'production',
@@ -13,26 +18,15 @@ module.exports = {
     target: 'web',
     entry: './src/index.ts',
     plugins: [
-        new ManifestPlugin(),
-        new WebappWebpackPlugin({
-            logo: path.resolve('src/assets/logo.svg'),
-            cache: true,
-            prefix: '',
-            inject: true,
-            favicons: {
-                appName: ':: asber',
-                appDescription: 'Anti-Social Behaviour Therapy',
-                developerName: 'Deniss Muhļa <deniss.muhla@gmail.com>',
-                developerURL: null,
-                background: '#ddd',
-                theme_color: '#333',
-                icons: {
-                    coast: false,
-                    yandex: false
-                }
-            }
-        }),
         new CleanWebpackPlugin(),
+        new CopyPlugin([
+            {
+                from: './src/assets/manifest/__generated__',
+                to: './',
+                ignore: ['*.html'],
+                cache: true
+            }
+        ]),
         new HtmlWebpackPlugin({
             title: ':: asber',
             template: './src/assets/index.html',
@@ -54,7 +48,8 @@ module.exports = {
                     'script-src': true,
                     'style-src': true
                 }
-            }
+            },
+            manifestAssets
         }),
         new WorkboxPlugin.GenerateSW({
             clientsClaim: true,
