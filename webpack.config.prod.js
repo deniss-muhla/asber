@@ -30,7 +30,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: ':: asber',
             template: './src/assets/index.html',
-            filename: 'index.[contenthash].html',
+            filename: 'index.html',
             minify: true,
             cspPlugin: {
                 enabled: true,

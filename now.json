@@ -1,5 +1,5 @@
 {
   "name": "asber",
   "builds": [{ "src": "package.json", "use": "@now/static-build" }],
-  "routes": [{ "src": "/*.html", "headers": { "cache-control": "s-maxage=604800" }, "dest": "/index.(.*).html" }]
+  "routes": [{ "src": "/index.html", "headers": { "cache-control": "s-maxage=604800" }, "dest": "/index.html" }]
 }
