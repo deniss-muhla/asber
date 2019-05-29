@@ -5,6 +5,27 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
         <title><%= htmlWebpackPlugin.options.title %></title>
         <%= htmlWebpackPlugin.options.manifestAssets %>
+        <style>
+            html,
+            body {
+                background: #000000;
+            }
+            .container {
+                display: flex;
+                min-height: 100vh;
+                flex-direction: column;
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+            }
+            .root {
+                display: flex;
+                flex: 1;
+                font-size: 0;
+            }
+        </style>
     </head>
-    <body></body>
+    <body class="container">
+        <canvas id="root" class="root" touch-action="none"></canvas>
+    </body>
 </html>
