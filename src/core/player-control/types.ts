@@ -5,5 +5,5 @@ export const DEF_CAMERA_ANGULAR_SENSIBILITY = 500;
 export const DEF_CAMERA_SPEED = 5;
 
 export interface PlayerControlOptions {
-    scene: ActionScene;
+    actionScene: ActionScene;
 }

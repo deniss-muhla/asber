@@ -13,7 +13,23 @@
   "env": {
     "production": {
       "presets": ["minify"]
+    },
+    "development": {
+      "plugins": ["@babel/plugin-syntax-dynamic-import"]
     }
   },
-  "plugins": ["@babel/plugin-proposal-class-properties"]
+  "plugins": [
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "decoratorsBeforeExport": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ]
+  ]
 }
