@@ -8,6 +8,7 @@
     "module": "commonjs",
     "target": "es6",
     "noResolve": false,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "declaration": true
   },
