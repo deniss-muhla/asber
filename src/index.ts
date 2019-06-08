@@ -1,10 +1,7 @@
 import '@babylonjs/core/Meshes/meshBuilder';
 import { Asber } from './asber';
 
-const canvas = document.getElementById('root') as HTMLCanvasElement;
-
-const asber = new Asber({ canvas });
-asber.run();
+const asber = new Asber();
 
 // Register PWA service worker
 if (process.env.NODE_ENV === 'production') {
@@ -20,4 +17,10 @@ if (process.env.NODE_ENV === 'production') {
                 });
         });
     }
+}
+
+// HMR
+if (module.hot) {
+    module.hot.accept(e => console.error(e));
+    module.hot.dispose(() => asber.dispose());
 }

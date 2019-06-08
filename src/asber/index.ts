@@ -11,15 +11,23 @@ export class Asber extends GameEngine {
         this._sandbox = v;
     }
 
-    constructor(options: AsberOptions) {
-        super(options);
+    constructor() {
+        const canvas = document.createElement('canvas') as HTMLCanvasElement;
+        document.body.appendChild(canvas);
+
+        super({ canvas });
 
         this._sandbox = new SandboxScene({ engine: this });
-    }
 
-    run() {
+        // Start scene
         this.runRenderLoop(() => {
             this.sandbox.render();
         });
+    }
+
+    dispose() {
+        const canvas = this.getRenderingCanvas();
+        document.body.removeChild(canvas);
+        super.dispose();
     }
 }
