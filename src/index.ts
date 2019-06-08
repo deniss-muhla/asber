@@ -25,7 +25,6 @@ if (module.hot) {
     module.hot.accept(e => console.error(e));
     if (module.hot.data) {
         const { serializedAsber = null } = module.hot.data;
-        console.log('Serialized asber: ', serializedAsber);
         Deserialize(serializedAsber, Asber, asber);
     }
     module.hot.dispose(data => {
