@@ -1,25 +1,22 @@
-import { ActionSceneOptions } from './types';
 import { Scene } from '@babylonjs/core/scene';
-import { HemisphericLight } from '@babylonjs/core/Lights/hemisphericLight';
-import { GridMaterial } from '@babylonjs/materials/grid';
-import { Mesh } from '@babylonjs/core/Meshes/mesh';
-import { Vector3 } from '@babylonjs/core/Maths/math';
 import { PlayerControl } from '../player-control';
+import { autoserializeAsArray } from 'cerialize';
+import { GameEngine } from '../game-engine';
+import { Vector3 } from '@babylonjs/core/Maths/math';
+import { DEF_SCENE_GRAVITY } from './types';
+import { OimoJSPlugin } from '@babylonjs/core/Physics/Plugins/oimoJSPlugin';
+import * as oimo from 'oimo';
 
 export class ActionScene extends Scene {
-    private _playerControls: PlayerControl[] = [];
-    public get playerControls(): PlayerControl[] {
-        return this._playerControls;
-    }
-    public set playerControls(v: PlayerControl[]) {
-        this._playerControls = v;
-    }
+    /** Player controls */
+    @autoserializeAsArray(PlayerControl) public playerControls: PlayerControl[] = [];
 
-    // static initialize() {
-    //     // Initialization
-    // }
-
-    constructor({ engine }: ActionSceneOptions) {
+    constructor(public engine: GameEngine) {
         super(engine);
+
+        // Setup gravity and collisions
+        this.enablePhysics(new Vector3(0, DEF_SCENE_GRAVITY, 0), new OimoJSPlugin(1, oimo));
+        this.gravity = new Vector3(0, DEF_SCENE_GRAVITY, 0);
+        this.collisionsEnabled = true;
     }
 }

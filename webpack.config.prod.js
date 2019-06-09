@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const SriPlugin = require('webpack-subresource-integrity');
 const CspHtmlWebpackPlugin = require('csp-html-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');

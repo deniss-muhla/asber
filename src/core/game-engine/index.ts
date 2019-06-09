@@ -1,13 +1,14 @@
 import { Engine } from '@babylonjs/core/Engines/engine';
-import { GameEngineOptions } from './types';
 import { ActionScene } from '../action-scene';
+import { autoserializeAsArray } from 'cerialize';
 
 /** Game engine */
 export class GameEngine extends Engine {
-    scenes: ActionScene[] = [];
+    /** Engine scenes */
+    @autoserializeAsArray(ActionScene) scenes: ActionScene[] = [];
 
     /** Create game engine */
-    constructor({ canvas }: GameEngineOptions) {
+    constructor(public canvas: HTMLCanvasElement) {
         super(canvas);
     }
 }

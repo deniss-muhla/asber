@@ -1,23 +1,18 @@
 import { GameEngine } from '../core/game-engine';
-import { AsberOptions } from './types';
 import { SandboxScene } from './scenes/sandbox';
+import { inheritSerialization } from 'cerialize';
 
+@inheritSerialization(GameEngine)
 export class Asber extends GameEngine {
-    private _sandbox: SandboxScene;
-    public get sandbox(): SandboxScene {
-        return this._sandbox;
-    }
-    public set sandbox(v: SandboxScene) {
-        this._sandbox = v;
-    }
+    private sandbox: SandboxScene;
 
     constructor() {
         const canvas = document.createElement('canvas') as HTMLCanvasElement;
         document.body.appendChild(canvas);
 
-        super({ canvas });
+        super(canvas);
 
-        this._sandbox = new SandboxScene({ engine: this });
+        this.sandbox = new SandboxScene(this);
 
         // Start scene
         this.runRenderLoop(() => {
