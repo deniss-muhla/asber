@@ -1,4 +1,6 @@
 import '@babylonjs/core/Meshes/meshBuilder';
+import '@babylonjs/core/Collisions/collisionCoordinator';
+import '@babylonjs/core/Physics/physicsEngineComponent';
 import { Asber } from './asber';
 import { Serialize, Deserialize } from 'cerialize';
 

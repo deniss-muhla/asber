@@ -2,6 +2,10 @@ import { Scene } from '@babylonjs/core/scene';
 import { PlayerControl } from '../player-control';
 import { autoserializeAsArray } from 'cerialize';
 import { GameEngine } from '../game-engine';
+import { Vector3 } from '@babylonjs/core/Maths/math';
+import { DEF_SCENE_GRAVITY } from './types';
+import { OimoJSPlugin } from '@babylonjs/core/Physics/Plugins/oimoJSPlugin';
+import * as oimo from 'oimo';
 
 export class ActionScene extends Scene {
     /** Player controls */
@@ -9,5 +13,10 @@ export class ActionScene extends Scene {
 
     constructor(public engine: GameEngine) {
         super(engine);
+
+        // Setup gravity and collisions
+        this.enablePhysics(new Vector3(0, DEF_SCENE_GRAVITY, 0), new OimoJSPlugin(1, oimo));
+        this.gravity = new Vector3(0, DEF_SCENE_GRAVITY, 0);
+        this.collisionsEnabled = true;
     }
 }
