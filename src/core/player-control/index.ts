@@ -4,6 +4,7 @@ import { UniversalCamera } from '@babylonjs/core/Cameras/universalCamera';
 import { ActionScene } from '../action-scene';
 import { autoserializeUsing } from 'cerialize';
 import { CameraSerializer } from '../../utils/serializers/camera';
+import { UniversalCameraKeyboardWalkInput } from './inputs/universal-camera-keyboard-walk-input';
 
 export class PlayerControl {
     /** Player camera */
@@ -30,19 +31,22 @@ export class PlayerControl {
         this.camera.angularSensibility = DEF_CAMERA_ANGULAR_SENSIBILITY;
         this.camera.speed = DEF_CAMERA_SPEED;
 
-        // // Remove default input management
-        // this.camera.inputs.removeByType("FreeCameraKeyboardMoveInput");
+        // Remove default input management
+        this.camera.inputs.removeByType('FreeCameraKeyboardMoveInput');
+        this.camera.inputs.add(new UniversalCameraKeyboardWalkInput());
+
+        //
         // this.camera.inputs.removeByType("FreeCameraMouseInput");
 
         this.camera.setTarget(Vector3.Zero());
         this.camera.attachControl(canvas, true);
 
-        canvas.addEventListener('keydown', function(evt) {
-            if (evt.keyCode === 13) {
-                if (!engine.isFullscreen) {
-                    engine.enterFullscreen(true);
-                }
-            }
-        });
+        // canvas.addEventListener('keydown', function(evt) {
+        //     if (evt.keyCode === 13) {
+        //         if (!engine.isFullscreen) {
+        //             engine.enterFullscreen(true);
+        //         }
+        //     }
+        // });
     }
 }

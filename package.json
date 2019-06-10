@@ -40,6 +40,8 @@
     "@babylonjs/post-processes": "^4.0.3",
     "@babylonjs/procedural-textures": "^4.0.3",
     "@babylonjs/serializers": "^4.0.3",
+    "keycode-js": "^1.0.4",
+    "mobx": "^5.10.1",
     "oimo": "^1.0.9"
   },
   "scripts": {

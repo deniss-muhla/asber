@@ -7,21 +7,22 @@ import { Engine } from '@babylonjs/core/Engines/engine';
 import { Scene } from '@babylonjs/core/scene';
 import { Vector3 } from '@babylonjs/core/Maths/math';
 import { serialize } from '@babylonjs/core/Misc/decorators';
+import * as KeyCode from 'keycode-js';
 
 export class UniversalCameraKeyboardWalkInput implements ICameraInput<UniversalCamera> {
     public camera: UniversalCamera;
 
     @serialize()
-    public keysUp = [38];
+    public keysUp = [KeyCode.KEY_UP, KeyCode.KEY_W];
 
     @serialize()
-    public keysDown = [40];
+    public keysDown = [KeyCode.KEY_DOWN, KeyCode.KEY_S];
 
     @serialize()
-    public keysLeft = [37];
+    public keysLeft = [KeyCode.KEY_LEFT, KeyCode.KEY_A];
 
     @serialize()
-    public keysRight = [39];
+    public keysRight = [KeyCode.KEY_RIGHT, KeyCode.KEY_D];
 
     private _keys = new Array<number>();
     private _onCanvasBlurObserver: Nullable<Observer<Engine>>;
