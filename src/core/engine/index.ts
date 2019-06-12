@@ -1,11 +1,11 @@
 import { Engine } from '@babylonjs/core/Engines/engine';
-import { ActionScene } from '../action-scene';
+import { AcScene } from '../scene';
 import { autoserializeAsArray } from 'cerialize';
 
 /** Game engine */
-export class GameEngine extends Engine {
+export class AcEngine extends Engine {
     /** Engine scenes */
-    @autoserializeAsArray(ActionScene) scenes: ActionScene[] = [];
+    @autoserializeAsArray(AcScene) scenes: AcScene[] = [];
 
     /** Create game engine */
     constructor(public canvas: HTMLCanvasElement) {

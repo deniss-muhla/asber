@@ -1,7 +1,7 @@
 import { CAMERA_INERTIA, DEF_CAMERA_ANGULAR_SENSIBILITY, DEF_CAMERA_SPEED } from './types';
 import { Vector3, Viewport } from '@babylonjs/core/Maths/math';
 import { UniversalCamera } from '@babylonjs/core/Cameras/universalCamera';
-import { ActionScene } from '../action-scene';
+import { AcScene } from '../scene';
 import { autoserializeUsing } from 'cerialize';
 import { CameraSerializer } from '../../utils/serializers/camera';
 
@@ -9,7 +9,7 @@ export class PlayerControl {
     /** Player camera */
     @autoserializeUsing(CameraSerializer) public camera: UniversalCamera;
 
-    constructor(public scene: ActionScene) {
+    constructor(public scene: AcScene) {
         scene.playerControls.push(this);
 
         const engine = scene.getEngine();
