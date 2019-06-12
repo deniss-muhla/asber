@@ -1,10 +1,10 @@
 import '@babylonjs/core/Meshes/meshBuilder';
 import '@babylonjs/core/Collisions/collisionCoordinator';
 import '@babylonjs/core/Physics/physicsEngineComponent';
-import { Asber } from './asber';
+import { AsberEngine } from './asber';
 import { Serialize, Deserialize } from 'cerialize';
 
-const asber = new Asber();
+const asber = new AsberEngine();
 
 // Register PWA service worker
 if (process.env.NODE_ENV === 'production') {
@@ -27,10 +27,10 @@ if (module.hot) {
     module.hot.accept(e => console.error(e));
     if (module.hot.data) {
         const { serializedAsber = null } = module.hot.data;
-        Deserialize(serializedAsber, Asber, asber);
+        Deserialize(serializedAsber, AsberEngine, asber);
     }
     module.hot.dispose(data => {
-        data.serializedAsber = Serialize(asber, Asber);
+        data.serializedAsber = Serialize(asber, AsberEngine);
         asber.dispose();
     });
 }

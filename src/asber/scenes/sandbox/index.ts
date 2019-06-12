@@ -2,18 +2,18 @@ import { HemisphericLight } from '@babylonjs/core/Lights/hemisphericLight';
 import { GridMaterial } from '@babylonjs/materials/grid';
 import { Mesh } from '@babylonjs/core/Meshes/mesh';
 import { Vector3 } from '@babylonjs/core/Maths/math';
-import { ActionScene } from '../../../core/action-scene';
+import { AcScene } from '../../../core/scene';
 import { PlayerControl } from '../../../core/player-control';
 import { inheritSerialization, autoserializeUsing } from 'cerialize';
 import { LightSerializer } from '../../../utils/serializers/light';
-import { Asber } from '../..';
+import { AsberEngine } from '../..';
 
-@inheritSerialization(ActionScene)
-export class SandboxScene extends ActionScene {
+@inheritSerialization(AcScene)
+export class SandboxScene extends AcScene {
     /** Default scene light */
     @autoserializeUsing(LightSerializer) public hemisphericLight: HemisphericLight;
 
-    constructor(asber: Asber) {
+    constructor(asber: AsberEngine) {
         super(asber);
         const control = new PlayerControl(this);
 

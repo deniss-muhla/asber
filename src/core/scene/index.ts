@@ -1,17 +1,17 @@
 import { Scene } from '@babylonjs/core/scene';
 import { PlayerControl } from '../player-control';
 import { autoserializeAsArray } from 'cerialize';
-import { GameEngine } from '../game-engine';
+import { AcEngine } from '../engine';
 import { Vector3 } from '@babylonjs/core/Maths/math';
 import { DEF_SCENE_GRAVITY } from './types';
 import { OimoJSPlugin } from '@babylonjs/core/Physics/Plugins/oimoJSPlugin';
 import * as oimo from 'oimo';
 
-export class ActionScene extends Scene {
+export class AcScene extends Scene {
     /** Player controls */
     @autoserializeAsArray(PlayerControl) public playerControls: PlayerControl[] = [];
 
-    constructor(public engine: GameEngine) {
+    constructor(public engine: AcEngine) {
         super(engine);
 
         // Setup gravity and collisions

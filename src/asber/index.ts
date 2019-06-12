@@ -1,9 +1,9 @@
-import { GameEngine } from '../core/game-engine';
+import { AcEngine } from '../core/engine';
 import { SandboxScene } from './scenes/sandbox';
 import { inheritSerialization } from 'cerialize';
 
-@inheritSerialization(GameEngine)
-export class Asber extends GameEngine {
+@inheritSerialization(AcEngine)
+export class AsberEngine extends AcEngine {
     private sandbox: SandboxScene;
 
     constructor() {

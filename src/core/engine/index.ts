@@ -1,13 +1,13 @@
 import { Engine } from '@babylonjs/core/Engines/engine';
-import { ActionScene } from '../action-scene';
+import { AcScene } from '../scene';
 import { autoserializeAsArray } from 'cerialize';
 import { observable, IReactionDisposer, reaction } from 'mobx';
 import { UX_MAX_DELAY_MS } from '../types';
 
 /** Game engine */
-export class GameEngine extends Engine {
+export class AcEngine extends Engine {
     /** Engine scenes */
-    @autoserializeAsArray(ActionScene) scenes: ActionScene[] = [];
+    @autoserializeAsArray(AcScene) scenes: AcScene[] = [];
 
     @observable public isFullscreen: boolean;
 
