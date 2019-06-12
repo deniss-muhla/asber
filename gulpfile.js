@@ -17,7 +17,7 @@ const paths = {
     }
 };
 
-function cleanGenerated() {
+function cleanGeneratedFavicons() {
     return del([`src/assets/manifest/${generated}/`]);
 }
 
@@ -64,4 +64,4 @@ function generateFavicons() {
         .pipe(gulp.dest(`src/assets/manifest/${generated}/`));
 }
 
-exports.generate = series(cleanGenerated, generateFavicons);
+exports['generate-favicons'] = series(cleanGeneratedFavicons, generateFavicons);

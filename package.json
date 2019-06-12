@@ -43,7 +43,7 @@
     "oimo": "^1.0.9"
   },
   "scripts": {
-    "generate": "gulp generate",
+    "generate:favicons": "gulp generate-favicons",
     "start": "cross-env NODE_ENV=development BABEL_ENV=development webpack-dev-server --config ./webpack.config.dev.js",
     "build": "cross-env NODE_ENV=production BABEL_ENV=production webpack --config ./webpack.config.prod.js",
     "now-build": "yarn build"
