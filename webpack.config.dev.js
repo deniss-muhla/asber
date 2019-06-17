@@ -50,6 +50,11 @@ module.exports = {
             },
             {
                 test: /\.js$/,
+                include: /node_modules\/react-dom/,
+                use: ['react-hot-loader/webpack']
+            },
+            {
+                test: /\.js$/,
                 use: ['source-map-loader'],
                 enforce: 'pre'
             }

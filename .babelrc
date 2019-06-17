@@ -8,9 +8,13 @@
           "browsers": "last 1 version"
         }
       }
-    ]
+    ],
+    "@babel/preset-react"
   ],
   "env": {
+    "development": {
+      "plugins": ["react-hot-loader/babel"]
+    },
     "production": {
       "presets": ["minify"]
     }
