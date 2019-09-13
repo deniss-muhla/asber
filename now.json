@@ -1,5 +1,9 @@
 {
+  "version": 2,
   "name": "asber",
+  "github": {
+    "autoAlias": false
+  },
   "builds": [{ "src": "package.json", "use": "@now/static-build" }],
   "routes": [{ "src": "/index.html", "headers": { "cache-control": "s-maxage=604800" }, "dest": "/index.html" }]
 }
